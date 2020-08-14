@@ -1241,6 +1241,11 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
+"@midudev/wc-spinning-progress@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@midudev/wc-spinning-progress/-/wc-spinning-progress-0.0.1.tgz#5561a281094767ea0a6e5172b72aebae269eb5fe"
+  integrity sha512-ioq7/SgvB5cos1kjekORrU+LZwCVgF2PK/otxCwj9Ys8hiPBDTXbD/GSwaj/epLeAQRV/xzKgQZ/MaClHNTOfg==
+
 "@next/react-dev-overlay@9.5.1":
   version "9.5.1"
   resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.5.1.tgz#534e84fbd67f8b2ad0f7b8363ae069943a6b5e12"

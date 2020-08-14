@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Head from "next/head"
 
 import AppLayout from "components/AppLayout"
-import Avatar from "components/Avatar"
 import Button from "components/Button"
 import GitHub from "components/Icons/GitHub"
 import Logo from "components/Icons/Logo"
 
 import { colors } from "styles/theme"
 
-import { loginWithGitHub, onAuthStateChanged } from "firebase/client"
+import { loginWithGitHub } from "firebase/client"
+import { useRouter } from "next/router"
+import useUser from "hooks/useUser"
 
 export default function Home() {
-  const [user, setUser] = useState(undefined)
+  const user = useUser()
+  const router = useRouter()
 
   useEffect(() => {
-    onAuthStateChanged(setUser)
-  }, [])
+    user && router.replace("/home")
+  }, [user])
 
   const handleClick = () => {
-    loginWithGitHub()
-      .then(setUser)
-      .catch((err) => {
-        console.log(err)
-      })
+    loginWithGitHub().catch((err) => {
+      console.log(err)
+    })
   }
 
   return (
@@ -50,15 +50,7 @@ export default function Home() {
                 Login with GitHub
               </Button>
             )}
-            {user && user.avatar && (
-              <div>
-                <Avatar
-                  alt={user.username}
-                  src={user.avatar}
-                  text={user.username}
-                />
-              </div>
-            )}
+            {user === undefined && <img src="/spinner.gif" />}
           </div>
         </section>
       </AppLayout>

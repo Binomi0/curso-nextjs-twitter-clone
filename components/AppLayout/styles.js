@@ -15,6 +15,7 @@ export const globalStyles = css.global`
     padding: 0;
     margin: 0;
     font-family: ${fonts.base};
+    overflow: hidden;
   }
 
   * {
@@ -35,6 +36,7 @@ export default css`
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     height: 100%;
     position: relative;
+    overflow-y: auto;
     width: 100%;
   }
 
